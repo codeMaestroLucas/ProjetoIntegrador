@@ -1,7 +1,10 @@
 const mongoose = require("mongoose");
 const VeiculoDataSchema = new mongoose.Schema({
-    place: String,
+    placa: String,
     cor: String,
     ano: Number,
     quilometragem: Number,
 });
+
+module.exports = mongoose.model("veiculos", VeiculoDataSchema);
+// Atribui ao DB de nome "veiculos" a estrutura VeiculoDataSchema
