@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+
 const VeiculoDataSchema = new mongoose.Schema({
     placa: String,
     cor: String,
