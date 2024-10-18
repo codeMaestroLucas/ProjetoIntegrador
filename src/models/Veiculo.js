@@ -5,6 +5,11 @@ const VeiculoDataSchema = new mongoose.Schema({
     cor: String,
     ano: Number,
     quilometragem: Number,
+    dono: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "cliente"
+    }
+    
 });
 
 module.exports = mongoose.model("veiculos", VeiculoDataSchema);

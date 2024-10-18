@@ -40,10 +40,47 @@ module.exports = { // Para exportar tudo que está no arquivo
 
 
     // U
+    // TODO: Concluir
     async update(request, response) {
-        return response.json({
-            msg: "update"
-        })
+        const { id } = request.params;
+
+        const veiculo = await Veiculos.findOne({_id : id})
+
+        if (!veiculo) {
+            return response.status(404).json({
+                error: "Veículo não encontrado."
+            })
+        };
+
+        const { placa, cor, ano, quilometragem } = request.body;
+
+        if (!placa || !cor || !ano || !quilometragem) {
+            return response.status(400).json({
+                error: "Todos os dados são obrigatórios"
+            });
+        }
+
+        const {
+            placa: placaValidada,
+            cor: corValidada,
+            ano: anoValidado,
+            quilometragem: quilometragemValidada,
+        } = validarTratVeiculo(placa, cor, ano, quilometragem);
+
+        veiculo.placa = placaValidada;
+        veiculo.cor = corValidada;
+        veiculo.ano = parseInt(anoValidado, 10);
+        veiculo.quilometragem = parseFloat(quilometragemValidada);
+    
+        try {
+            await veiculo.save();
+            return response.status(200).json(veiculo);
+        } catch (error) {
+            return response.status(500).json({
+                error: "Erro ao atualizar o veículo."
+            })
+        };
+        
     },
 
     
