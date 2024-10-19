@@ -5,10 +5,14 @@ const VeiculoDataSchema = new mongoose.Schema({
     cor: String,
     ano: Number,
     quilometragem: Number,
+    modelo: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "modelo"
+    },
     dono: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "cliente"
-    }
+    },
     
 });
 

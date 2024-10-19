@@ -6,7 +6,6 @@ const ClienteDataSchema = new mongoose.Schema({
     telefone: Number,
     email: String,
     senha: String, // TODO: Hashear a senha para segurança
-    telefone: String,
     veiculos: [
         {
             type: mongoose.Schema.Types.ObjectId,
@@ -14,6 +13,5 @@ const ClienteDataSchema = new mongoose.Schema({
         }
     ]
 });
-
 
 module.exports = mongoose.model("cliente", ClienteDataSchema);
