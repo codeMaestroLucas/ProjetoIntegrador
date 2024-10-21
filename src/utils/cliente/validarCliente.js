@@ -4,16 +4,15 @@ function validarTratarNome(nome){
 
 
 function validarTratarTelefone(telefone) {
-    telefone = telefone.trim();
+    telefone = telefone.replace(/\D/g, '');
 
-    if (!isNaN(telefone) &&
-        10 <= telefone.length && telefone.length <= 15) {
+    if (10 <= telefone.length && telefone.length <= 15) {
         return telefone;
     }
     
-    return response.status(400).json({
-        error: "Telefone inválido. O telefone deve ser um número entre 10 e 15."
-    });
+    throw new Error(
+        "Telefone inválido. O telefone deve ter entre 10 e 15 digitos."
+    );
 };
 
 function validarTratarEmail(email){
@@ -21,20 +20,21 @@ function validarTratarEmail(email){
 
     if (regex.test(email)) {
         return email;
-    } 
+    }
 
-    return response.status(400).json({
-        error: "Insira um email válido."
-    });
+    throw new Error(
+       "Insira um email válido."
+    );
 };
 
 function validarTratarSenha(senha) {
     if (senha.length >= 8) {
         return senha;
-    } 
-    return response.status(400).json({
-        error: "Insira uma senha válida."
-    });
+    }
+    
+    throw new Error(
+        "Insira uma senha com mais de 8 caractéres."
+    );
 
 };
 

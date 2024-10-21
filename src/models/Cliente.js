@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const bcrypt = require('bcrypt'); // Datado, achar outro
+// const bcrypt = require('bcrypt'); // Datado, achar outro
 
 const ClienteDataSchema = new mongoose.Schema({
     nome: String,
@@ -14,4 +14,4 @@ const ClienteDataSchema = new mongoose.Schema({
     ]
 });
 
-module.exports = mongoose.model("cliente", ClienteDataSchema);
+module.exports = mongoose.model("clientes", ClienteDataSchema);

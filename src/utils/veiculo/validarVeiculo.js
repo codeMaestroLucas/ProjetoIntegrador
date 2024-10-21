@@ -1,19 +1,18 @@
-
 function validarTratarPlaca(placa) {
-    return placa.toUpperCase();
+    return placa.trim().toUpperCase();
 };
 
 
 function validarTratarCor(cor) {
-    return cor.toLowerCase();
+    return cor.trim().toLowerCase();
 };
 
 
 function validarTratarAno(ano) {
     if (isNaN(ano) || ano < 1886 || ano > new Date().getFullYear()) {
-        return response.status(400).json({
-            error: "Ano inválido. O ano deve ser um número entre 1886 e o ano atual."
-        });
+        throw new Error(
+         "Ano inválido. O ano deve ser um número entre 1886 e o ano atual."
+        );
     }
 
     return ano;
@@ -22,9 +21,9 @@ function validarTratarAno(ano) {
 
 function validarTratarQuilometragem(quilometragem) {
     if (isNaN(quilometragem) || quilometragem < 0) {
-        return response.status(400).json({
-            error: "Quilometragem inválida. Deve ser um número não negativo."
-        });
+        throw new Error(
+            "Quilometragem inválida. Deve ser um número não negativo."
+        );
     }
 
     return quilometragem;
