@@ -17,18 +17,11 @@ module.exports = { // Para exportar tudo que está no arquivo
         }
 
         try {
-            const {
-                placa: placaValidada,
-                cor: corValidada,
-                ano: anoValidado,
-                quilometragem: quilometragemValidada,
-            } = validarTratVeiculo(placa, cor, ano, quilometragem);
-        
             const veiculo = await Veiculos.create({
-                placa: placaValidada,
-                cor: corValidada,
-                ano: parseInt(anoValidado, 10),
-                quilometragem: parseFloat(quilometragemValidada),
+                placa: placa,
+                cor: cor,
+                ano: ano,
+                quilometragem: quilometragem,
             });
         
             return response.status(201).json(veiculo);
@@ -68,23 +61,17 @@ module.exports = { // Para exportar tudo que está no arquivo
 
         try {
 
-            const {
-                placa: placaValidada,
-                cor: corValidada,
-                ano: anoValidado,
-                quilometragem: quilometragemValidada,
-            } = validarTratVeiculo(placa, cor, ano, quilometragem);
-
-            veiculo.placa = placaValidada;
-            veiculo.cor = corValidada;
-            veiculo.ano = parseInt(anoValidado, 10);
-            veiculo.quilometragem = parseFloat(quilometragemValidada);
+            veiculo.placa = placa;
+            veiculo.cor = cor;
+            veiculo.ano = ano;
+            veiculo.quilometragem = quilometragem;
         
-                await veiculo.save();
-                return response.status(200).json(veiculo);
+            await veiculo.save();
+            return response.status(200).json(veiculo);
+
         } catch (error) {
             return response.status(500).json({
-                error: "Erro ao atualizar o veículo."
+                error: "Erro ao atualizar o veículo.\n" + error.message
             });
         };
         

@@ -8,8 +8,14 @@ Projeto usado na faculdade de ADS - CEUB
 
 3. **Controllers:** trabalha com as requisições do usuário;
 
-# Passos para execução
+# Ideias
 
-1. No Shell executar o comando `npm install`
+## Pedro
+1. Alterar os Models para a msm coisa que está no veículos.
+    
+    Mexer tbm na validação, remover aquilo que já foi feito na modificação acima. Ver se ainda é necessário ter alguma **validação externa**
+
+## Lucas S
+1. Fazer função buscarPeloEmail na classe usuário para facilitar a parte de login.
 
 Alunos: Lucas Samuel, Lucas Rafael, Luiz Henrique, Pedro Guedes.

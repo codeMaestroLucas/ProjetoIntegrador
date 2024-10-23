@@ -9,4 +9,4 @@ const ModeloDataSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model("modelo",ModeloDataSchema);
+module.exports = mongoose.model("modelos",ModeloDataSchema);
