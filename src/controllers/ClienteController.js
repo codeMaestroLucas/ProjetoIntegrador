@@ -1,10 +1,9 @@
 const Clientes = require('../models/Cliente');
-const validarTratarCliente = require('../utils/cliente/validarCliente');
 
 module.exports = {
 
     // C
-    async create(request, response){
+    async create(request, response) {
         const{nome, telefone, email, senha} = request.body;
 
         if (!nome || !telefone || !email || !senha) {
@@ -15,18 +14,11 @@ module.exports = {
 
         try {
 
-            const {
-                nome: nomeValidado,
-                telefone: telefoneValidado,
-                email: emailValidado,
-                senha: senhaValidada
-            } = validarTratarCliente(nome, telefone, email, senha);
-
             const cliente = await Clientes.create({
-                nome: nomeValidado,
-                telefone: telefoneValidado,
-                email: emailValidado,
-                senha: senhaValidada
+                nome: nome,
+                telefone: telefone,
+                email: email,
+                senha: senha
             });
 
             return response.status(201).json(cliente);
@@ -38,14 +30,43 @@ module.exports = {
 
 
     // R
-    async read(request, response){
+    async read(request, response) {
         const clienteList = await Clientes.find();
         return response.json(clienteList);
     },
 
+    async getByEmail(request, response) {
+        const { email } = request.body;
+        
+        if (!email || email.trim() === "") {
+            return response.status(400).json({
+                error: "Email é obrigatório e não pode estar vazio."
+            });
+        }
+
+        const cliente = await Clientes.findOne({ email: email.trim() });
+        if (!cliente) {
+            return response.status(404).json({
+                error: "Cliente não encontrado."
+            });
+        }
+
+        const clienteRetorno = {
+            nome: cliente.nome,
+            telefone: cliente.telefone,
+            email: cliente.email,
+            veiculos: cliente.veiculos,
+        }
+
+        return response.status(200).json({
+            cliente: clienteRetorno
+        });
+
+    },
+
 
     // U
-    async update(request, response){
+    async update(request, response) {
         const { id } = request.params;
 
         const cliente = await Clientes.findOne({_id : id});
@@ -66,17 +87,10 @@ module.exports = {
 
         try {
 
-            const {
-                nome: nomeValidado,
-                telefone: telefoneValidado,
-                email: emailValidado,
-                senha: senhaValidada
-            } = validarTratarCliente(nome, telefone, email, senha);
-
-            cliente.nome = nomeValidado;
-            cliente.telefone = telefoneValidado;
-            cliente.email = emailValidado;
-            cliente.senha = senhaValidada;
+            cliente.nome = nome;
+            cliente.telefone = telefone;
+            cliente.email = email;
+            cliente.senha = senha;
 
             await cliente.save();
             return response.status(200).json(cliente);
@@ -91,7 +105,7 @@ module.exports = {
 
 
     // D
-    async delete(request, response){
+    async delete(request, response) {
         const { id } = request.params;
         const clienteDeletado = await Clientes.findByIdAndDelete({_id: id});
 

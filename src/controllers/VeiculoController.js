@@ -1,11 +1,8 @@
 const Veiculos = require('../models/Veiculo');
-const validarTratVeiculo = require('../utils/veiculo/validarVeiculo');
 
 module.exports = { // Para exportar tudo que está no arquivo
 
     // C
-    // TODO: Colocar modelo -> povoar o DB com as Marcas e Modelos
-    // Msm vale para o *UPDATE*
     async create(request, response) {
         const { placa, cor, ano, quilometragem } = request.body;
         // Parâmetros no Body HTML

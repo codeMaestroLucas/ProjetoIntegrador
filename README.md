@@ -13,9 +13,12 @@ Projeto usado na faculdade de ADS - CEUB
 ## Pedro
 1. Alterar os Models para a msm coisa que está no veículos.
     
-    Mexer tbm na validação, remover aquilo que já foi feito na modificação acima. Ver se ainda é necessário ter alguma **validação externa**
+    Pegar a validação que está sendo feita nos arquivos "utils/..." e fazer para as outras classes do models. CLIENTE ainda não foi feito.
+
+    Criar a classe de "serviços" no models.
 
 ## Lucas S
-1. Fazer função buscarPeloEmail na classe usuário para facilitar a parte de login.
+1. Perguntar ao professor sobre a senha
+
 
 Alunos: Lucas Samuel, Lucas Rafael, Luiz Henrique, Pedro Guedes.
