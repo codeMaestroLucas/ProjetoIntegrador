@@ -4,7 +4,7 @@ module.exports = {
 
     // C
     async create(request, response) {
-        const{nome, telefone, email, senha} = request.body;
+        const{ nome, telefone, email, senha } = request.body;
 
         if (!nome || !telefone || !email || !senha) {
             return response.status(400).json({

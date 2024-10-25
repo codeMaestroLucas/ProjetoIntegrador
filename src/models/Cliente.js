@@ -44,7 +44,7 @@ ClienteDataSchema.pre('save', async function(next) {
 
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!regex.test(this.email)) {
-        return next( new Error("Insira um email válido."));
+        return next(new Error("Insira um email válido."));
     }
     this.email = this.email.trim();
 
