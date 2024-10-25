@@ -12,10 +12,13 @@ const VeiculoDataSchema = new mongoose.Schema({
     },
     ano: {
         type: Number,
+        min: 1900,
+        max: new Date().getFullYear(),
         required: true,
     },
     quilometragem: {
         type: Number,
+        min: 0,
         required: true,
     },
     modelo: {
@@ -35,15 +38,7 @@ const VeiculoDataSchema = new mongoose.Schema({
 VeiculoDataSchema.pre('save', function(next) {
     this.placa = this.placa.trim().toLowerCase();
     this.cor = this.cor.trim().toLowerCase();
-
-    if (this.ano < 1900 || this.ano > new Date().getFullYear()) {
-        return next(new Error("Ano inválido. O ano deve ser um número entre 1886 e o ano atual."));
-    }
     this.ano = parseInt(this.ano, 10);
-
-    if (this.quilometragem < 0) {
-        return next(new Error("Quilometragem inválida. Deve ser um número não negativo."));
-    }
     this.quilometragem = parseFloat(this.quilometragem);
 
     next();  // Valida a operação e continua o processo
