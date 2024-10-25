@@ -4,12 +4,14 @@ const ServicoDataSchema = new mongoose.Schema({
     servico: {
         type: String,
         required: true,
-        match: /^[a-zA-Z\s]+$/i
+        match: /^[\w\sÀ-ÿ]+$/i,
+        maxlength: 100,
     },
     descricao: {
         type: String,
         required: true,
-        match: /^[a-zA-Z\s]+$/i
+        match: /^[\w\sÀ-ÿ]+$/i,
+        maxlength: 255,
     }
 });
 

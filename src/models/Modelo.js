@@ -5,9 +5,10 @@ const ModeloDataSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true,
+        maxlength: 100,
     },
     marca: {
-        type: mongoose.Schema.Types.Objectid,
+        type: mongoose.Schema.Types.ObjectId,
         ref:"marcas",
         required: true,
     }

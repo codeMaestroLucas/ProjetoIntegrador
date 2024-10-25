@@ -13,7 +13,7 @@ const VeiculoDataSchema = new mongoose.Schema({
     ano: {
         type: Number,
         min: 1900,
-        max: new Date().getFullYear(),
+        max: new Date().getFullYear() + 2,
         required: true,
     },
     quilometragem: {
@@ -36,10 +36,8 @@ const VeiculoDataSchema = new mongoose.Schema({
 });
 
 VeiculoDataSchema.pre('save', function(next) {
-    this.placa = this.placa.trim().toLowerCase();
+    this.placa = this.placa.trim().toUpperCase();
     this.cor = this.cor.trim().toLowerCase();
-    this.ano = parseInt(this.ano, 10);
-    this.quilometragem = parseFloat(this.quilometragem);
 
     next();  // Valida a operação e continua o processo
 });

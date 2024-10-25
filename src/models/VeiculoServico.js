@@ -47,16 +47,14 @@ VeiculoServicoSchema.pre('save', function(next) {
     if (this.data_init > this.data_end) {
         return next(new Error("Data de início do serviço não pode ser posterior à data de término."));
     }
-    if (this.data_init < new Date.now()) {
+    if (this.data_init < new Date()) {
         return next(new Error("Data de início do serviço não pode ser anterior ao dia de hoje."));
     }
-    if (this.data_end < new Date.now()) {
+    if (this.data_end < new Date()) {
         return next(new Error("Data de término do serviço não pode ser anterior ao dia de hoje."));
     }
     this.data_init = this.data_init;
     this.data_end = this.data_end;
-
-    this.avaliacao = parseInt(this.avaliacao, 0);
     
     this.comentario = this.comentario.trim().toLowerCase();
 
