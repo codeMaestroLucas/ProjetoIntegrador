@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
-const argon2 = require('argon2'); // Datado, achar outro
-// TODO: Perguntar ao professor sobre a senha
+const argon2 = require('argon2');
 
 const ClienteDataSchema = new mongoose.Schema({
     nome: {
@@ -23,7 +22,7 @@ const ClienteDataSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true,
-        match: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, 
+        match: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
         trim: true,
     },
     senha: {
@@ -54,7 +53,7 @@ ClienteDataSchema.pre('save', async function(next) {
             parallelism: 1,      // 1 thread
         });
     } catch (err) {
-        return next(new Error("Erro ao hashear a senha.")); // Tratamento de erro
+        return next(new Error("Erro ao hashear a senha."));
     }
 
     next();

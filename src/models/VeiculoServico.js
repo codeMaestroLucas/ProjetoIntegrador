@@ -42,7 +42,7 @@ const VeiculoServicoSchema = new mongoose.Schema({
 
 
 VeiculoServicoSchema.pre('save', function(next) {
-    this.valor = parseFloat(this.valor.toFixed(2));  // 2 casas decimais
+    this.valor = parseFloat(this.valor.toFixed(2));
 
     if (this.data_init > this.data_end) {
         return next(new Error("Data de início do serviço não pode ser posterior à data de término."));
