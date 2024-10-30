@@ -1,0 +1,58 @@
+DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+
+    <link rel="stylesheet" href="static/css/reset.css">
+    <link rel="stylesheet" href="static/css/fonts.css">
+    <link rel="stylesheet" href="static/css/colors.css">
+    <link rel="stylesheet" href="static/css/registroCliente.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Readex+Pro:wght@160..700&display=swap" rel="stylesheet">
+
+    <title>Registro</title>
+  </head>
+  <body>
+    <main class="main">
+      <h2 class="title readex-pro-semibold">
+        D
+        <img src="static/images/LogoSmall.png" alt="logoSmall">
+        do
+        <span>s</span></span>
+      </h2>
+      
+      <form action="/submit" method="post" class="form">
+        <div class="nomeDiv">
+          <label for="nome" class="barlow-semi-condensed-medium">Nome</label><br>
+          <input type="text" id="nome" name="nome" required value="Nome" class="barlow-semi-condensed-medium">
+        </div>
+
+        <div class="telDiv">
+          <label for="telefone" class="barlow-semi-condensed-medium">Telefone</label><br>
+          <input type="tel" id="telefone" name="telefone" required pattern="[0-9]{11}" value="12456789100"
+          placeholder="12456789100" class="barlow-semi-condensed-medium">
+        </div>
+
+        <div class="emailDiv">
+          <label for="email" class="barlow-semi-condensed-medium">Email</label><br>
+          <input type="email" id="email" name="email" required value="email@email.com" class="barlow-semi-condensed-medium">
+        </div>
+
+        <div class="senhaDiv">
+          <label for="senha" class="barlow-semi-condensed-medium">Senha</label><br>
+          <input type="password" id="senha" name="senha" required class="barlow-semi-condensed-medium">
+        </div>
+
+        <input type="submit" value="Enviar" class="btnSubmit barlow-semi-condensed-bold">
+      </form>
+    </main>
+  </body>
+</html>
