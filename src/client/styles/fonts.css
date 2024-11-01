@@ -1,0 +1,188 @@
+/* Open Sans - Principal */
+/* Barlow - Labels */
+/* Readex-Pro - Titulos */
+
+/* Open Sans */
+.open-sans-regular {
+    font-family: "Open Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
+  }
+  
+  .open-sans-medium {
+    font-family: "Open Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
+  }
+  
+  .open-sans-semibold {
+    font-family: "Open Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
+  }
+  
+  .open-sans-bold {
+    font-family: "Open Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
+  }
+  
+  /* Barlow - já preenchido */
+  .barlow-semi-condensed-thin {
+    font-family: "Barlow Semi Condensed", serif;
+    font-weight: 100;
+    font-style: normal;
+  }
+  
+  .barlow-semi-condensed-extralight {
+    font-family: "Barlow Semi Condensed", serif;
+    font-weight: 200;
+    font-style: normal;
+  }
+  
+  .barlow-semi-condensed-light {
+    font-family: "Barlow Semi Condensed", serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .barlow-semi-condensed-regular {
+    font-family: "Barlow Semi Condensed", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .barlow-semi-condensed-medium {
+    font-family: "Barlow Semi Condensed", serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  .barlow-semi-condensed-semibold {
+    font-family: "Barlow Semi Condensed", serif;
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+  .barlow-semi-condensed-bold {
+    font-family: "Barlow Semi Condensed", serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .barlow-semi-condensed-extrabold {
+    font-family: "Barlow Semi Condensed", serif;
+    font-weight: 800;
+    font-style: normal;
+  }
+  
+  .barlow-semi-condensed-black {
+    font-family: "Barlow Semi Condensed", serif;
+    font-weight: 900;
+    font-style: normal;
+  }
+  
+  .barlow-semi-condensed-thin-italic {
+    font-family: "Barlow Semi Condensed", serif;
+    font-weight: 100;
+    font-style: italic;
+  }
+  
+  .barlow-semi-condensed-extralight-italic {
+    font-family: "Barlow Semi Condensed", serif;
+    font-weight: 200;
+    font-style: italic;
+  }
+  
+  .barlow-semi-condensed-light-italic {
+    font-family: "Barlow Semi Condensed", serif;
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  .barlow-semi-condensed-regular-italic {
+    font-family: "Barlow Semi Condensed", serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .barlow-semi-condensed-medium-italic {
+    font-family: "Barlow Semi Condensed", serif;
+    font-weight: 500;
+    font-style: italic;
+  }
+  
+  .barlow-semi-condensed-semibold-italic {
+    font-family: "Barlow Semi Condensed", serif;
+    font-weight: 600;
+    font-style: italic;
+  }
+  
+  .barlow-semi-condensed-bold-italic {
+    font-family: "Barlow Semi Condensed", serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+  
+  .barlow-semi-condensed-extrabold-italic {
+    font-family: "Barlow Semi Condensed", serif;
+    font-weight: 800;
+    font-style: italic;
+  }
+  
+  .barlow-semi-condensed-black-italic {
+    font-family: "Barlow Semi Condensed", serif;
+    font-weight: 900;
+    font-style: italic;
+  }
+  
+  
+  /* Readex-Pro */
+  .readex-pro-regular {
+    font-family: "Readex Pro", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "HEXP" 0;
+  }
+  
+  .readex-pro-medium {
+    font-family: "Readex Pro", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings:
+      "HEXP" 0;
+  }
+  
+  .readex-pro-semibold {
+    font-family: "Readex Pro", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings:
+      "HEXP" 0;
+  }
+  
+  .readex-pro-bold {
+    font-family: "Readex Pro", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-variation-settings:
+      "HEXP" 0;
+  }
+  

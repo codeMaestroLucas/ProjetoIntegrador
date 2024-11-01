@@ -1,0 +1,17 @@
+* {
+    color: black;
+    
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: none;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+html, body, #root {
+    height: 100vh;
+
+}
+
