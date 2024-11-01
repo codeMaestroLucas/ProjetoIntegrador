@@ -1,31 +1,42 @@
 import React from 'react';
 import InputForm from './InputForm';
+import logoSmall from '../assets/LogoSmall.png';
 
 import '../styles/forms.css';
 
-function Forms(props) {
-
-    const fields = [
-        {title: "Nome"},
-        {title: "Telefone"},
-        {title: "Email"},
-        {title: "Senha"},
-    ];
+function Forms({fields}) {
 
     return (
 
-        <form>
+        <>
+            <h2 className="title readex-pro-semibold">
+                D
+                <img src={logoSmall} alt="logoSmall" />
+                do
+                <span>s</span>
+            </h2>
 
-            {/* Campos a ser preenchidos */}
-            {
-                fields.map((field, index) => (
-                    <InputForm key={index} title={field.title} />
-                ))
-            }
+            <form className='form'>
 
-            <input type="submit" value="Submit" />
+                {/* Campos a ser preenchidos */}
+                {
+                    fields.map((field, index) => (
+                        <InputForm
+                            key= {index}
+                            title= {field.title}
+                            type= {field.type}
+                        />
+                    ))
+                }
 
-        </form>
+                <input
+                    className='btnSubmit barlow-semi-condensed-bold'
+                    type="submit"
+                    value="Registrar"
+                    />
+
+            </form>
+        </>
 
     );
 }

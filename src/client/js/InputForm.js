@@ -1,15 +1,22 @@
-// InputForm.js
 import React from 'react';
 import '../styles/inputForm.css';
 
 
-function InputForm(props) {
+function InputForm({title, type}) {
     return (
-        <>
-            <label className='label'>{props.title}:</label>
+        <div className='inputDiv'>
+            <label className='label barlow-semi-condensed-medium'>{title}</label>
+
             <br />
-            <input type="text" name={props.title} className='input' required />
-        </>
+            
+            <input
+                className='input barlow-semi-condensed-medium'
+                type= {type}
+                name= {title}
+                required
+
+                />
+        </div>
     );
 }
 
