@@ -24,6 +24,4 @@ function PrimeiraTela() {
   }
   
 
-
-
 export default PrimeiraTela;

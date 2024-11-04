@@ -8,6 +8,8 @@
     box-sizing: border-box;
     overflow-x: hidden;
     overflow-y: hidden;
+
+    background: none;
 }
 
 html, body, #root {
