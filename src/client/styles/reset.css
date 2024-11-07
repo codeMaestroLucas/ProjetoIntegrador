@@ -17,3 +17,6 @@ html, body, #root {
 
 }
 
+body {
+    overflow-y: scroll;
+}

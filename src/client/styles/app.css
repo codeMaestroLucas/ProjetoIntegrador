@@ -53,7 +53,6 @@ button {
     font-size: 2rem;
 }
 
-
 .btnSubmit {
     margin-top: 1.5rem;
 
@@ -61,4 +60,11 @@ button {
     color: white;
     letter-spacing: 1.5px;
     font-size: 1rem;
+}
+
+.error {
+    color: rgb(208, 17, 17);
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: 800;
 }

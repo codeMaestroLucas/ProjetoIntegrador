@@ -2,28 +2,19 @@
 Projeto usado na faculdade de ADS - CEUB
 
 # Estrutura de Pastas
-```
+```markdown
 ├───public
 └───src
     ├───client
-    │   ├───assets
-    │   ├───js
-    │   └───styles
+    │   ├───assets  # Arquivos estáticos (imagens, fontes, etc.)
+    │   ├───js      # Scripts relacionados ao frontend
+    │   └───styles  # Arquivos de estilo CSS
     └───server
-        ├───config
-        ├───controllers
-        ├───models
-        └───routes
+        ├───config       # Configurações para comunicação com o banco de dados
+        ├───controllers  # Lógica de negócio e tratamento de requisições do usuário
+        ├───models       # Estrutura das classes que representam entidades do banco de dados
+        └───routes       # Definição de endpoints e vinculação com suas respectivas funções
 ```
-<!-- 
-1. **Config:** faz as configurações necessárias para a comunicação com DB;
-
-2. **Controllers:** trabalha com as requisições do usuário;
-
-3. **Model:** estrutura das classes que serão usadas no DB;
-
-4. **Routes:** cria os endpoints e vincula às função que serão usadas em cada objeto; -->
-
 
 # Como rodar?
 1. Instalar as Dependências: ```npm install```;
@@ -38,7 +29,8 @@ Projeto usado na faculdade de ADS - CEUB
 # Ideias
 
 ## Pedro
-Melhorar documentação, principalmente da estruturação das pastas
+Pegar as cores registradas no Figma e colocá-las no color.css seguindo a msm
+estrutura que já está lá
 
 ## Luiz
 Popular o DB
@@ -49,6 +41,12 @@ Começar as telas
     Dimensões do celular base -> 360x650
 
 ## Lucas R
-Pegar as cores registradas no Figma e colocá-las no color.css seguindo a msm estrutura que já está lá
+Mexer nos estilos dos formulários, deixando eles com um tamanho máximo definido
+
+
+```css
+    min-width: ... ;
+    max-widht: ... ;
+```
 
 Alunos: Lucas Samuel, Lucas Rafael, Luiz Henrique, Pedro Guedes.
