@@ -1,3 +1,8 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
 @media (max-width: 800px) {
     
     body  {
@@ -10,18 +15,21 @@
     }
 
     .main {
-        overflow-y: scroll;
         margin-top: 38%;
     }
 
 }
 
 .main {
+    max-width: 700px;
+    min-width: 35%;
+
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 
-    margin: 5% 5% 20%;
+    margin: 3rem 5% 10%;
     padding: 9px 2px;
 }
 
@@ -45,7 +53,7 @@
     transform-origin: center;
 }
 
-button {
+.btnSwitch {
     position: absolute;
     bottom: 8%;
     right: 20%;

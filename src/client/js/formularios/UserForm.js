@@ -1,7 +1,7 @@
 import React from 'react';
 import Form from './Forms';
 
-const UserForm = ({ handleChange, formData, switchForm }) => {
+const UserForm = ({ handleChange, formData, children }) => {
     const userFields = [
         { title: "Nome", type: "text", name: "nome" },
         { title: "Telefone", type: "tel", name: "telefone" },
@@ -11,10 +11,10 @@ const UserForm = ({ handleChange, formData, switchForm }) => {
 
     return (
         <>
-            <Form fields={userFields} onChange={handleChange} data={formData} />
-            <button type="button" onClick={switchForm}>
-                <i className="fas fa-arrow-right"></i>
-            </button>
+            <Form fields={userFields} onChange={handleChange} data={formData}>
+                {children}
+            </Form>
+
         </>
     );
 };

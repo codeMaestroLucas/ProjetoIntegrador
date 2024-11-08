@@ -14,9 +14,13 @@
 
 html, body, #root {
     height: 100vh;
-
+    width: 100vw;
 }
 
-body {
-    overflow-y: scroll;
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover,
+select:hover,
+textarea:hover {
+    cursor: pointer;
 }

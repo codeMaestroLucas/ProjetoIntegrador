@@ -41,8 +41,9 @@ Começar as telas
     Dimensões do celular base -> 360x650
 
 ## Lucas R
-Mexer nos estilos dos formulários, deixando eles com um tamanho máximo definido
+Testar a responsividade do app;
 
+Deixar o Scroll do registro de carro mais bonito e smoth
 
 ```css
     min-width: ... ;

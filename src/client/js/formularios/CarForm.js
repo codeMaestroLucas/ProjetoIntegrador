@@ -11,15 +11,13 @@ const CarForm = ({ handleChange, formData }) => {
     ];
 
     return (
-        <>
-            <Form fields={carFields} onChange={handleChange} data={formData} />
-            <input
-                className='btnSubmit barlow-semi-condensed-bold'
-                type="submit"
-                value="Registrar"
-                // onClick={switchForm}
-            />
-        </>
+            <Form fields={carFields} onChange={handleChange} data={formData}>
+                <input
+                    className='btnSubmit barlow-semi-condensed-bold'
+                    type="submit"
+                    value="Registrar"
+                />
+            </Form>
     );
 };
 
