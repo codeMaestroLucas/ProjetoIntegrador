@@ -7,8 +7,7 @@ import '../styles/app.css';
 const App = () => {
     const [currentForm, setCurrentForm] = useState('user');
 
-    const switchForm = (e) => {
-        e.preventDefault();
+    const switchForm = () => {
         setCurrentForm((prevForm) => (prevForm === 'user' ? 'car' : 'user'));
     };
 
@@ -16,14 +15,7 @@ const App = () => {
         <main className='main'>
             {currentForm === 'user' ? (
             <>
-                <UserForm>
-                    <button
-                        onClick= { switchForm }
-                        className="btnSwitch"
-                    >
-                        <i className="fas fa-arrow-right"></i>
-                    </button>
-                </UserForm>
+                <UserForm switchForm={switchForm}/>
             </>
             ) : (
             <>
