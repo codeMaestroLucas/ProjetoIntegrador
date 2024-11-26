@@ -1,29 +1,19 @@
-import React, { useState } from 'react';
-import UserForm from './formularios/UserForm';
-import CarForm from './formularios/CarForm';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './Home';
+import Cadastro from './formularios/Cadastro';
+import Login from './formularios/Login';
 
-import '../styles/app.css';
-
-const App = () => {
-    const [currentForm, setCurrentForm] = useState('user');
-
-    const switchForm = () => {
-        setCurrentForm((prevForm) => (prevForm === 'user' ? 'car' : 'user'));
-    };
-
+function App() {
     return (
-        <main className='main'>
-            {currentForm === 'user' ? (
-            <>
-                <UserForm switchForm={switchForm}/>
-            </>
-            ) : (
-            <>
-                <CarForm />
-            </>
-            )}
-        </main>
+        <Router>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/cadastro" element={<Cadastro />} />
+                <Route path="/login" element={<Login />} />
+            </Routes>
+        </Router>
     );
-};
+}
 
 export default App;

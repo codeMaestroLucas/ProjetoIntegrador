@@ -1,21 +1,20 @@
 body {
     display: flex;
     justify-content: center;
+    background: var(--bg-white);
 }
 
-@media (max-width: 800px) {
-    
-    body  {
-        background-color: var(--background-white);
+@media (max-width: 500px) {
+    /*TODO: achar alguma saída para isso -> a img sai com o gradient*/
+    /* body  {
         background-image: url('../assets/bottomRectangles.png');
         background-repeat: no-repeat;
         background-position: top;
         background-size: contain;
-        /* TODO: Achar alguma saída pra isso ou deletar essa img*/
-    }
+    } */
 
     .main {
-        margin-top: 38%;
+    margin-top: 10rem;
     }
 
 }

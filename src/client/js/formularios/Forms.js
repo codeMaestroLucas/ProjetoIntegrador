@@ -28,7 +28,7 @@ function Forms({ fields, data, onChange, onSubmit }) {
                         onChange={onChange}
                     />
                 ))}
-                <button type="submit" className="btnSubmit barlow-semi-condensed-bold">
+                <button type="submit" className="btnSwitch barlow-semi-condensed-bold">
                     <i className="fas fa-arrow-right"></i>
                 </button>
             </form>

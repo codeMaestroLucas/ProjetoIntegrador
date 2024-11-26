@@ -1,0 +1,52 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    padding: 10px;
+
+    position: relative;
+}
+
+.title {
+    margin-bottom: 10rem;
+}
+
+.entrar {
+    max-width: 250px;
+    min-width: 15rem;
+    height: 50px;
+    border-radius: 10px;
+    
+    background-color: #F96D00;
+
+    position: relative;
+
+    box-shadow: 0px 2px 5px rgba(255, 148, 82, 0.546);
+
+    display: flex;
+    align-items: center;
+    justify-content: right;
+
+    gap: 3.5rem;
+}
+
+.esqueceu {
+    color: #909090;
+    margin-bottom: 1.5rem;
+    text-decoration: underline;
+}
+
+.entrar  p {
+    color: white;
+    font-size: 1rem;
+    text-shadow: 1px 1px 1px blue;
+}
+
+.entrar  i {
+    color: white;
+    font-size: 1.5rem;
+    padding-right: 1rem;
+}
+

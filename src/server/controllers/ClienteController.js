@@ -2,6 +2,7 @@ const Clientes = require('../models/Cliente');
 
 module.exports = {
 
+
     // C
     async create(request, response) {
         const{ nome, telefone, email, senha } = request.body;
