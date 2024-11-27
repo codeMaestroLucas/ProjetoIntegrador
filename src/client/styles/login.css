@@ -10,7 +10,9 @@ body {
 }
 
 .title {
-    margin-bottom: 10rem;
+    margin: 2rem 0 4rem;
+    padding-bottom: 10px;
+    height: max-content;
 }
 
 .entrar {
@@ -36,15 +38,21 @@ body {
     color: #909090;
     margin-bottom: 1.5rem;
     text-decoration: underline;
+    padding-left: 1rem;
 }
 
-.entrar  p {
+.btnDiv {
+    display: flex;
+    justify-content: center;
+}
+
+.btnDiv .entrar  p {
     color: white;
     font-size: 1rem;
     text-shadow: 1px 1px 1px blue;
 }
 
-.entrar  i {
+.btnDiv .entrar  i {
     color: white;
     font-size: 1.5rem;
     padding-right: 1rem;

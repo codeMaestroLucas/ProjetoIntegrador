@@ -38,10 +38,13 @@ const Login = () => {
                     Esqueceu a senha?
                 </button>
                 
+                <div className='btnDiv'>
                 <button className='entrar' type="submit">
                     <p className='readex-pro-bold'>Entrar</p>
                     <i className="fas fa-arrow-right"></i>
                 </button>
+
+                </div>
             </form>
         </>
     );
