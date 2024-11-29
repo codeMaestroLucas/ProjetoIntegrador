@@ -1,0 +1,57 @@
+:root {
+    /* Solid Colors */
+    --pallet-black: #222831;
+    --bg-black: #191919;
+    --pallet-gray: #393E46;
+    --blur-bg: #B4B4B4;
+    --input-bg: #CBCBCB;
+    --pallet-white: #F2F2F2;
+    --white-ret: #F4F4F4;
+    --pallet-yellow: #EFC136;
+    --normal-yellow-ret: #EFC136;
+    --pallet-white-yellow: #FADB7A;
+    --very-white-yellow-ret: #FADB7A;
+    --white-yellow: #FFDE59;
+    --bg-star: #FFDE59;
+    --line-star: #FFCE51;
+    --orange-ret: #F4A100;
+    --pallet-red: #F96D00;
+    --red-color: #B42727;
+    --white-red: #FF91A0;
+    --azul: #4F81BB;
+
+    /* Gradients */
+    --t1: linear-gradient(
+        #FFA0CF 0%,
+        #FB587F 50%,
+        #FF6F6F 100%
+    );
+    --t2: linear-gradient(
+        #FFB1A1 0%,
+        #FC711B 50%,
+        #F09819 100%
+    );
+    --t3: linear-gradient(
+        #86B5FF 0%,
+        #5A6FCF 50%,
+        #6FB1FC 100%
+    );
+    --red-orange: linear-gradient(
+        #F4A100 0%,
+        #F96D00 100%
+    );
+    --gradient-red: linear-gradient(
+        #952D2D 0%,
+        #CF0E0E 100%
+    );
+    --wave-color: linear-gradient(
+        #F96D00 0%,
+        #E8400A 72%,
+        #D81414 98%
+    );
+    --bg-white: linear-gradient(
+        #F2F2F2 0%,
+        #EBE6E6 50%,
+        #F2F2F2 100%
+    );
+}

@@ -1,5 +1,4 @@
 const Veiculos = require('../models/Veiculo');
-const validarTratVeiculo = require('../utils/veiculo/validarVeiculo');
 
 module.exports = { // Para exportar tudo que está no arquivo
 
@@ -14,21 +13,19 @@ module.exports = { // Para exportar tudo que está no arquivo
             });
         }
 
-        const {
-            placa: placaValidada,
-            cor: corValidada,
-            ano: anoValidado,
-            quilometragem: quilometragemValidada,
-        } = validarTratVeiculo(placa, cor, ano, quilometragem);
+        try {
+            const veiculo = await Veiculos.create({
+                placa: placa,
+                cor: cor,
+                ano: ano,
+                quilometragem: quilometragem,
+            });
+        
+            return response.status(201).json(veiculo);
     
-        const veiculo = await Veiculos.create({
-            placa: placaValidada,
-            cor: corValidada,
-            ano: parseInt(anoValidado, 10),
-            quilometragem: parseFloat(quilometragemValidada),
-        });
-    
-        return response.status(201).json(veiculo);
+        } catch (error) {
+            return response.status(400).json({ error: error.message });
+        };
     },
 
 
@@ -40,7 +37,6 @@ module.exports = { // Para exportar tudo que está no arquivo
 
 
     // U
-    // TODO: Concluir
     async update(request, response) {
         const { id } = request.params;
 
@@ -60,25 +56,20 @@ module.exports = { // Para exportar tudo que está no arquivo
             });
         }
 
-        const {
-            placa: placaValidada,
-            cor: corValidada,
-            ano: anoValidado,
-            quilometragem: quilometragemValidada,
-        } = validarTratVeiculo(placa, cor, ano, quilometragem);
-
-        veiculo.placa = placaValidada;
-        veiculo.cor = corValidada;
-        veiculo.ano = parseInt(anoValidado, 10);
-        veiculo.quilometragem = parseFloat(quilometragemValidada);
-    
         try {
+
+            veiculo.placa = placa;
+            veiculo.cor = cor;
+            veiculo.ano = ano;
+            veiculo.quilometragem = quilometragem;
+        
             await veiculo.save();
             return response.status(200).json(veiculo);
+
         } catch (error) {
             return response.status(500).json({
-                error: "Erro ao atualizar o veículo."
-            })
+                error: "Erro ao atualizar o veículo.\n" + error.message
+            });
         };
         
     },

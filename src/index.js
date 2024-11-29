@@ -1,12 +1,14 @@
-const express = require("express");
-const app = express();
-const connection = require("./config/dbConfig")
-const veiculoRouter = require("./routes/VeiculoRoutes")
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './client/js/App.js';
+import './client/styles/reset.css';
+import './client/styles/fonts.css';
+import './client/styles/colors.css';
 
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
-app.use(express.json()); // Para o app ser capaz de ler e enviar JSON
-app.use(veiculoRouter);
-
-
-
-app.listen(3333);
+root.render(
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>
+);
