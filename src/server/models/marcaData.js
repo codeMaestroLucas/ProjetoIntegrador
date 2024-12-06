@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const marcaData = new mongoose.Schema({
     nome: {
         type: String,
-        required: true,
         unique: true,
     },
 });

@@ -1,4 +1,5 @@
 import React from "react";
+
 import InputForm from "./InputForm";
 
 import "../styles/login.css";
@@ -6,12 +7,7 @@ import "../styles/login.css";
 const Login = () => {
 
   const loginFields = [
-    {
-      title: "Email",
-      type: "email",
-      name: "email",
-      icon: "fas fa-arrow-right",
-    },
+    { title: "Email", type: "email", name: "email", icon: "fas fa-arrow-right" },
     { title: "Senha", type: "password", name: "senha", icon: "" },
   ];
 
@@ -30,7 +26,7 @@ const Login = () => {
           />
         ))}
 
-        <a href='/'
+        <a href='/esqueceu'
            className="esqueceu barlow-semi-condensed"
            type="button">
           Esqueceu a senha?

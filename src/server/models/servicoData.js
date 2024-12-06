@@ -3,13 +3,11 @@ const mongoose = require("mongoose");
 const servicoData = new mongoose.Schema({
     servico: {
         type: String,
-        required: true,
         match: /^[\w\sÀ-ÿ]+$/i,
         maxlength: 100,
     },
     descricao: {
         type: String,
-        required: true,
         match: /^[\w\sÀ-ÿ]+$/i,
         maxlength: 255,
     }

@@ -4,15 +4,12 @@ const argon2 = require('argon2');
 const userData = new mongoose.Schema({
     nome: {
         type: String,
-        required: true,
-        unique: true,
         minlength: 3,
         maxlength: 50,
         match: /^[a-zA-Z\s]+$/i, // Somente letras e espaço
     },
     telefone: {
         type: String,
-        required: true,
         minlength: 10,
         maxlength: 16,
         unique: true,
@@ -20,14 +17,12 @@ const userData = new mongoose.Schema({
     },
     email: {
         type: String,
-        required: true,
         unique: true,
         match: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
         trim: true,
     },
     senha: {
         type: String,
-        required: true,
         minlength: 8,
         select: false, // Não exibe a senha na resposta
     },

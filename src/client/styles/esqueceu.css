@@ -1,0 +1,26 @@
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.divEsqueceu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+
+    width: 90%;
+    max-width: 500px;
+    padding: 35px;
+
+    margin-top: 5rem;
+
+    border: 1px solid rgb(189, 189, 189);
+    border-radius: 2px;
+}
+
+
+.divEsqueceu .title {
+    margin-bottom: 0.5rem;
+}

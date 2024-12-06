@@ -1,9 +1,3 @@
-body {
-    display: flex;
-    justify-content: center;
-    background: var(--bg-white);
-}
-
 @media (max-width: 500px) {
     /*TODO: achar alguma saída para isso -> a img sai com o gradient*/
     /* body  {

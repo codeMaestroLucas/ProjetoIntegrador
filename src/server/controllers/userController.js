@@ -27,32 +27,9 @@ module.exports = {
     return res.json(await userData.find());
   },
 
-  async getByEmail(req, res) {
-    const { email } = req.body;
-
-    if (!email || email.trim() === "") {
-      return res.status(400).json({
-        error: "Email é obrigatório e não pode estar vazio.",
-      });
-    }
-
-    const user = await userData.findOne({ email: email.trim() });
-    if (!user) {
-      return res.status(404).json({
-        error: "Usuário não encontrado.",
-      });
-    }
-
-    const userRetorno = {
-      nome: user.nome,
-      telefone: user.telefone,
-      email: user.email,
-      veiculos: user.veiculos,
-    };
-
-    return res.status(200).json({
-      user: userRetorno,
-    });
+  async getUserByEmail(req, res) {
+    const { email } = req.params;
+    return res.json(await userData.findOne({ email: email }));
   },
 
   // U
