@@ -12,7 +12,7 @@ const Login = () => {
   ];
 
   return (
-    <>
+    <div className="divLogin">
       <h2 className="title readex-pro-bold">Login</h2>
 
       <form className="form">
@@ -32,12 +32,14 @@ const Login = () => {
           Esqueceu a senha?
         </a>
 
-        <button className="entrar" type="submit">
-          <p className="readex-pro-bold">Entrar</p>
-          <i className="fas fa-arrow-right"></i>
-        </button>
+        <div className="buttonDiv">
+          <button className="entrar" type="submit">
+            <p className="readex-pro-bold">Entrar</p>
+            <i className="fas fa-arrow-right"></i>
+          </button>
+        </div>
       </form>
-    </>
+    </div>
   );
 };
 

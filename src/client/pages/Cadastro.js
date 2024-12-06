@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import logoSmall from "../assets/LogoSmall.png";
+
 import "../styles/forms.css";
 
-import CadastroUsuario from './CadastroUsuario';
-import CadastroVeiculo from './CadastroVeiculo';
+import CadastroUsuario from "./CadastroUsuario";
+import CadastroVeiculo from "./CadastroVeiculo";
 
 const Title = () => (
   <h2 className="title readex-pro-semibold">
@@ -16,18 +17,18 @@ const Title = () => (
 
 const Cadastro = () => {
   const [userData, setUserData] = useState({
-    nome: '',
-    telefone: '',
-    email: '',
-    senha: '',
+    nome: "",
+    telefone: "",
+    email: "",
+    senha: "",
   });
 
   const [carData, setCarData] = useState({
-    placa: '',
-    modelo: '',
-    cor: '',
-    ano: '',
-    quilometragem: ''
+    placa: "",
+    modelo: "",
+    cor: "",
+    ano: "",
+    quilometragem: "",
   });
 
   const [showCarForm, setShowCarForm] = useState(false); // Added state to track the form step
@@ -36,78 +37,93 @@ const Cadastro = () => {
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value });
   };
-  
 
-const handleCarInputChange = (e) => {
+  const handleCarInputChange = (e) => {
     const { name, value } = e.target;
     setCarData({ ...carData, [name]: value });
   };
 
-  const isUserFormFilled = Object.values(userData).every(value => value !== '');
+  const isUserFormFilled = Object.values(userData).every(
+    (value) => value !== ""
+  );
 
   const handleNextStep = () => {
     if (isUserFormFilled) {
       setShowCarForm(true); // Switch to the car form when user data is filled
     } else {
-      console.error('Please fill in all the user form fields.');
+      console.error("Please fill in all the user form fields.");
     }
   };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  const userResponse = await fetch("http://localhost:3333/user", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(userData),
-  });
-
-  if (userResponse.ok) {
-    const { email } = userData;
-    const userIdResponse  = await fetch(`http://localhost:3333/user/${ email }`, {
-      method: "GET",
-    });
-    const { _id } = await userIdResponse.json();
-
-    const carResponse = await fetch("http://localhost:3333/car", {
+    const userResponse = await fetch("http://localhost:3333/user", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...carData, dono: _id }),
+      body: JSON.stringify(userData),
     });
 
-    if (carResponse.ok) {
-      console.log('Data submitted successfully!');
+    if (userResponse.ok) {
+      const { email } = userData;
+      const userIdResponse = await fetch(
+        `http://localhost:3333/user/${email}`,
+        {
+          method: "GET",
+        }
+      );
+      const { _id } = await userIdResponse.json();
+
+      const carResponse = await fetch("http://localhost:3333/car", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...carData, dono: _id }),
+      });
+
+      if (carResponse.ok) {
+        console.log("Data submitted successfully!");
+      } else {
+        console.error("Failed to submit car data");
+      }
     } else {
-      console.error('Failed to submit car data');
+      const errorResponse = await userResponse.json();
+      console.error(errorResponse.error); // Log the error from the backend
     }
-  } else {
-    const errorResponse = await userResponse.json();
-    console.error(errorResponse.error); // Log the error from the backend
-  }
-};
+  };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="form" onSubmit={handleSubmit}>
       <Title />
       {!showCarForm ? (
-        <>
+        <div className="divCadastro">
           <CadastroUsuario userData={userData} setUserData={setUserData} />
-          <button
-            type="button"
-            className="btnSwitch barlow-semi-condensed-bold"
-            onClick={handleNextStep}
-            disabled={!isUserFormFilled}
-          >
-            <i className="fas fa-arrow-right"></i>
-          </button>
-        </>
+
+          <div className="divBtn">
+            <button
+              type="button"
+              className="btnSwitch barlow-semi-condensed-bold"
+              onClick={handleNextStep}
+              disabled={!isUserFormFilled}
+            >
+              <i className="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
       ) : (
-        <>
-          <CadastroVeiculo carData={carData} handleCarInputChange={handleCarInputChange} />
-          <button type="submit" className="btnSwitch barlow-semi-condensed-bold">
-            <i className="fas fa-arrow-right"></i>
-          </button>
-        </>
+        <div className="divCadastro">
+          <CadastroVeiculo
+            carData={carData}
+            handleCarInputChange={handleCarInputChange}
+          />
+          <div className="divBtn">
+            <button
+              type="submit"
+              className="btnSwitch barlow-semi-condensed-bold"
+            >
+              <i className="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
       )}
     </form>
   );

@@ -3,8 +3,8 @@ import "../styles/esqueceu.css";
 const Esqueceu = () => {
   return (
     <div className="divEsqueceu">
-      <h1 className="title readex-pro-semibold">Esqueceu a senha?</h1>
-      <p className="barlow-semi-condensed-regular">
+      <h1 className="title readex-pro-semibold">Esqueceu a senha<span>?</span></h1>
+      <p className=" texto barlow-semi-condensed-regular">
         Entre com seu e-mail para redefinir sua senha.
       </p>
       <form>
@@ -27,10 +27,11 @@ const Esqueceu = () => {
           <input type="password" placeholder="Nova senha" />
         </div>
 
-        <button type="submit" className="btnSwitch barlow-semi-condensed-bold">
-          <i className="fas fa-arrow-right"></i>
-        </button>
-        
+        <div className="divBtn">
+          <button type="submit" className="btnMudar open-sans-bold">
+            <p>Mudar senha</p>
+          </button>
+        </div>
       </form>
     </div>
   );

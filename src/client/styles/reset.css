@@ -11,6 +11,8 @@
     overflow-y: hidden;
 
     background: none;
+
+    text-decoration: none;
 }
 
 html, body, #root {

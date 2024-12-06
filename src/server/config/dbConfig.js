@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const stringCon = 'mongodb+srv://lucasamuel:projeto@projetointegrador.jpfaj.mongodb.net/';
+const stringCon = 'mongodb+srv://lucassamuel:projetow@projeto.r3z9v.mongodb.net/';
 
 mongoose.connect(stringCon, {
     useNewUrlParser: true,

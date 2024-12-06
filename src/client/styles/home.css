@@ -1,0 +1,66 @@
+.divHome{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+
+    margin-top: 17%;
+}
+
+h1{ 
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+p{
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+
+}
+
+.btn_login{
+    max-width: 250px;
+    min-width: 15rem;
+    height: 50px;
+    border-radius: 10px;
+
+    background-color: var(--pallet-red);
+    position: relative;
+    box-shadow: 0px 2px 5px rgba(255, 148, 82, 0.546);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+
+    border: none;
+
+}
+
+.btn_registrar{
+    max-width: 250px;
+    min-width: 15rem;
+    height: 50px;
+    border-radius: 10px;
+
+    background-color: var(--pallet-white);
+    position: relative;
+    box-shadow: 0px 2px 5px (255, 148, 82, 0.546);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+
+    border: 1.75px solid var(--azul);
+    background-color: non;
+}
+
+
