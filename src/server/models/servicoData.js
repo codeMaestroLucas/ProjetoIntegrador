@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const ServicoDataSchema = new mongoose.Schema({
+const servicoData = new mongoose.Schema({
     servico: {
         type: String,
         required: true,
@@ -16,11 +16,11 @@ const ServicoDataSchema = new mongoose.Schema({
 });
 
 
-ServicoDataSchema.pre('save', function(next) {
+servicoData.pre('save', function(next) {
     this.servico = this.servico.trim().toLowerCase();
     this.descricao = this.descricao.trim().toLowerCase();
 
     next();
 });
 
-module.exports = mongoose.model("servicos",ServicoDataSchema);
+module.exports = mongoose.model("servicos", servicoData);

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
-const ModeloDataSchema = new mongoose.Schema({
-    modelo: {
+const modeloData = new mongoose.Schema({
+    nome: {
         type: String,
         required: true,
         unique: true,
@@ -15,9 +15,9 @@ const ModeloDataSchema = new mongoose.Schema({
 });
 
 
-ModeloDataSchema.pre('save', function(next) {
+modeloData.pre('save', function(next) {
     this.modelo = this.modelo.trim().toLowerCase();
     next();
 });
 
-module.exports = mongoose.model("modelos",ModeloDataSchema);
+module.exports = mongoose.model("modelos", modeloData);

@@ -1,92 +1,95 @@
-const Veiculos = require('../models/Veiculo');
+const veiculoData = require("../models/veiculoData");
 
-module.exports = { // Para exportar tudo que está no arquivo
+module.exports = {
+  // C
+  async create(req, res) {
+    const { placa, cor, ano, quilometragem } = req.body;
 
-    // C
-    async create(request, response) {
-        const { placa, cor, ano, quilometragem } = request.body;
-        // Parâmetros no Body HTML
-    
-        if (!placa || !cor || !ano || !quilometragem) {
-            return response.status(400).json({
-                error: "Todos os dados são obrigatórios"
-            });
-        }
+    if (!placa || !cor || !ano || !quilometragem) {
+      return res.status(400).json({
+        error: "Todos os dados são obrigatórios",
+      });
+    }
 
-        try {
-            const veiculo = await Veiculos.create({
-                placa: placa,
-                cor: cor,
-                ano: ano,
-                quilometragem: quilometragem,
-            });
-        
-            return response.status(201).json(veiculo);
-    
-        } catch (error) {
-            return response.status(400).json({ error: error.message });
-        };
-    },
+    try {
+      await veiculoData.create({
+        placa: placa,
+        cor: cor,
+        ano: ano,
+        quilometragem: quilometragem,
+      });
 
+      return res.status(201).redirect("http://localhost:3333/")
+    } catch (error) {
+      return res.status(400).json({ error: error.message });
+    }
+  },
 
-    // R
-    async read(request, response) {
-        const veiculosList = await Veiculos.find();
-        return response.json(veiculosList);
-    },
+  // R
+  async read(req, res) {
+    const veiculosList = await veiculoData.find();
+    return res.json(veiculosList);
+  },
 
+  // U
+  async update(req, res) {
+    const { id } = req.params;
 
-    // U
-    async update(request, response) {
-        const { id } = request.params;
+    if (!id) {
+      return res.status(400).json({
+        error: "ID é obrigatório.",
+      });
+    }
 
-        const veiculo = await Veiculos.findOne({_id : id})
+    const veiculo = await veiculoData.findOne({ _id: id });
 
-        if (!veiculo) {
-            return response.status(404).json({
-                error: "Veículo não encontrado."
-            })
-        };
+    if (!veiculo) {
+      return res.status(404).json({
+        error: "Veículo não encontrado.",
+      });
+    }
 
-        const { placa, cor, ano, quilometragem } = request.body;
+    const { placa, cor, ano, quilometragem } = req.body;
 
-        if (!placa || !cor || !ano || !quilometragem) {
-            return response.status(400).json({
-                error: "Todos os dados são obrigatórios"
-            });
-        }
+    if (!placa || !cor || !ano || !quilometragem) {
+      return res.status(400).json({
+        error: "Todos os dados são obrigatórios",
+      });
+    }
 
-        try {
+    try {
+      veiculo.placa = placa;
+      veiculo.cor = cor;
+      veiculo.ano = ano;
+      veiculo.quilometragem = quilometragem;
 
-            veiculo.placa = placa;
-            veiculo.cor = cor;
-            veiculo.ano = ano;
-            veiculo.quilometragem = quilometragem;
-        
-            await veiculo.save();
-            return response.status(200).json(veiculo);
+      await veiculo.save();
+      return res.status(200).json(veiculo);
+    } catch (error) {
+      return res.status(500).json({
+        error: "Erro ao atualizar o veículo.\n" + error.message,
+      });
+    }
+  },
 
-        } catch (error) {
-            return response.status(500).json({
-                error: "Erro ao atualizar o veículo.\n" + error.message
-            });
-        };
-        
-    },
+  // D
+  async delete(req, res) {
+    const { id } = req.params; // Parâmetro da URL
 
-    
-    // D
-    async delete(request, response) {
-        const { id } = request.params; // Parâmetro da URL
-        const veiculoDeletado = await Veiculos.findByIdAndDelete({_id: id});
+    if (!id) {
+      return res.status(400).json({
+        error: "ID é obrigatório.",
+      });
+    }
 
-        if (veiculoDeletado) {
-            return response.status(204).json(veiculoDeletado);
-        }
+    const veiculoDeletado = await veiculoData.findByIdAndDelete({ _id: id });
 
-        return response.status(404).json({
-            error: "Veículo não encontrado."
-        });
-    },
+    if (veiculoDeletado) {
+      return res.status(204).json(veiculoDeletado);
+    }
 
-}
+    return res.status(404).json({
+      error: "Veículo não encontrado.",
+    });
+  },
+};

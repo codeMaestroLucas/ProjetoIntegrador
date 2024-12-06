@@ -1,15 +1,12 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-const urlConn = "mongodb+srv://lucasamuel:projetoIntegrador@projetointegrador.jpfaj.mongodb.net/?retryWrites=true&w=majority&appName=projetoIntegrador";
+const stringCon = 'mongodb+srv://lucasamuel:projeto@projetointegrador.jpfaj.mongodb.net/';
 
-const connectionDB = async () => {
-    try {
-        await mongoose.connect(urlConn);
-        console.log.apply("Connected to Mongoose");
-    } catch (err) {
-        console.error(err);
-        process.exit(1);
-    }
-}
-
-module.exports = connectionDB; // Permite que seja importado para outros módulos
+mongoose.connect(stringCon, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+.then(() => console.log('Connected to MongoDB'))
+.catch((err) => {
+console.error('Error connecting to MongoDB:', err.message);
+});

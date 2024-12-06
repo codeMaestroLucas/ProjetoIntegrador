@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const VeiculoServicoSchema = new mongoose.Schema({
+const veiculoServico = new mongoose.Schema({
     valor: {
         type: Number,
         required: true,
@@ -41,7 +41,7 @@ const VeiculoServicoSchema = new mongoose.Schema({
 });
 
 
-VeiculoServicoSchema.pre('save', function(next) {
+veiculoServico.pre('save', function(next) {
     this.valor = parseFloat(this.valor.toFixed(2));
 
     if (this.data_init > this.data_end) {
@@ -53,8 +53,8 @@ VeiculoServicoSchema.pre('save', function(next) {
     if (this.data_end < new Date()) {
         return next(new Error("Data de término do serviço não pode ser anterior ao dia de hoje."));
     }
-    this.data_init = this.data_init;
-    this.data_end = this.data_end;
+    // this.data_init = this.data_init;
+    // this.data_end = this.data_end;
     
     this.comentario = this.comentario.trim().toLowerCase();
 
@@ -62,4 +62,4 @@ VeiculoServicoSchema.pre('save', function(next) {
 
 });
 
-module.exports = mongoose.model("veiculo_servico", VeiculoServicoSchema);
+module.exports = mongoose.model("veiculo_servico", veiculoServico);

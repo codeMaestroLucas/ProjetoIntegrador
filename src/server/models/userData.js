@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const argon2 = require('argon2');
 
-const ClienteDataSchema = new mongoose.Schema({
+const userData = new mongoose.Schema({
     nome: {
         type: String,
         required: true,
@@ -31,16 +31,16 @@ const ClienteDataSchema = new mongoose.Schema({
         minlength: 8,
         select: false, // Não exibe a senha na resposta
     },
-    veiculos: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "veiculos"
-        }
-    ]
+    // veiculos: [
+    //     {
+    //         type: mongoose.Schema.Types.ObjectId,
+    //         ref: "veiculos"
+    //     }
+    // ]
 });
 
 
-ClienteDataSchema.pre('save', async function(next) {
+userData.pre('save', async function(next) {
     this.nome = this.nome.trim().toLowerCase();
 
     this.email = this.email.trim();
@@ -59,4 +59,4 @@ ClienteDataSchema.pre('save', async function(next) {
     next();
 });
 
-module.exports = mongoose.model("clientes", ClienteDataSchema);
+module.exports = mongoose.model("usuarios", userData);

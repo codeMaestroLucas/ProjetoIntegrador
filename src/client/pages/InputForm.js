@@ -1,5 +1,7 @@
 import React from 'react';
-import '../../styles/inputForm.css';
+
+import '../styles/inputForm.css';
+
 
 function InputForm({ title, type, name, required = true, icon = '' }) {
     return (

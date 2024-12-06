@@ -1,15 +1,19 @@
-import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React from 'react';
+
+
+import CadastroUsuario from './CadastroUsuario';
+import CadastroVeiculo from './CadastroVeiculo';
+import Login from './Login';
 import Home from './Home';
-import Cadastro from './formularios/Cadastro';
-import Login from './formularios/Login';
 
 function App() {
     return (
         <Router>
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/cadastro" element={<Cadastro />} />
+                <Route path="/cadastroUsuario" element={<CadastroUsuario />} />
+                <Route path="/cadastroVeiculo" element={<CadastroVeiculo />} />
                 <Route path="/login" element={<Login />} />
             </Routes>
         </Router>

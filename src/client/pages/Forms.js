@@ -1,7 +1,7 @@
 import React from 'react';
 import InputForm from './InputForm';
-import logoSmall from '../../assets/LogoSmall.png';
-import '../../styles/forms.css';
+import logoSmall from '../assets/LogoSmall.png';
+import '../styles/forms.css';
 
 const Title = () => (
     <h2 className="title readex-pro-semibold">

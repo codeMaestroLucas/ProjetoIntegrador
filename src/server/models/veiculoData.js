@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const VeiculoDataSchema = new mongoose.Schema({
+const veiculoData = new mongoose.Schema({
     placa: {
         type: String,
         required: true,
@@ -35,13 +35,12 @@ const VeiculoDataSchema = new mongoose.Schema({
     timestamps: true
 });
 
-VeiculoDataSchema.pre('save', function(next) {
+veiculoData.pre('save', function(next) {
     this.placa = this.placa.trim().toUpperCase();
     this.cor = this.cor.trim().toLowerCase();
 
-    next();  // Valida a operação e continua o processo
+    next();
 });
 
 
-module.exports = mongoose.model("veiculos", VeiculoDataSchema);
-// Atribui ao DB de nome "veiculos" a estrutura VeiculoDataSchema
+module.exports = mongoose.model("veiculos", veiculoData);
