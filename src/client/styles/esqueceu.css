@@ -4,6 +4,7 @@
     align-items: flex-start;
 }
 
+
 .divEsqueceu {
     display: flex;
     flex-direction: column;
@@ -23,4 +24,8 @@
 
 .divEsqueceu .title {
     margin-bottom: 0.5rem;
+}
+
+.inputDiv input {
+    padding: 17px 15px;
 }
